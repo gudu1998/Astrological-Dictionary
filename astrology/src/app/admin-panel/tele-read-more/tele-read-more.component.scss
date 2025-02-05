@@ -1,0 +1,26 @@
+@import "../../../admin-styles.scss";
+
+div.collapsed {
+  overflow: hidden;
+  white-space: normal;
+  word-break: break-word;
+}
+
+.read-more-link {
+  cursor: pointer;
+  color: blue !important;
+  font-size: 14px;
+  line-height: 20px;
+  font-family: $primary-font;
+  display: inline-block;
+  margin-top: 5px;
+}
+
+.description-container {
+  max-height: 65px;
+  overflow: hidden;
+}
+
+.description-container.expanded {
+  max-height: none;
+}

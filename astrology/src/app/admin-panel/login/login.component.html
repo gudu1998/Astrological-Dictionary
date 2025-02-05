@@ -1,0 +1,59 @@
+<div class="login-container">
+  <div class="login-box">
+    <h2>Astrological Dictionary</h2>
+
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <div class="d-flex flex-column">
+        <label class="dream-label">Email</label>
+        <input
+          type="email"
+          placeholder="Enter your email"
+          class="dream-input mt-2"
+          formControlName="email"
+        />
+        <small
+          class="text-danger"
+          *ngIf="
+            (loginForm.get('email')?.touched ||
+              loginForm.get('email')?.dirty) &&
+            loginForm.get('email')?.errors?.required
+          "
+        >
+          Required
+        </small>
+        <small
+          class="text-danger"
+          *ngIf="
+            (loginForm.get('email')?.touched ||
+              loginForm.get('email')?.dirty) &&
+            loginForm.get('email')?.errors?.email
+          "
+        >
+          Please enter an valid email address
+        </small>
+      </div>
+      <div class="d-flex flex-column mt-4">
+        <label class="dream-label">Password</label>
+        <input
+          type="password"
+          placeholder="Enter your password"
+          class="dream-input mt-2"
+          formControlName="password"
+        />
+        <small
+          class="text-danger"
+          *ngIf="
+            (loginForm.get('password')?.touched ||
+              loginForm.get('password')?.dirty) &&
+            loginForm.get('password')?.errors?.required
+          "
+        >
+          Required
+        </small>
+      </div>
+      <div class="d-flex justify-content-center mt-4">
+        <button type="submit" class="btn btn-login">Login</button>
+      </div>
+    </form>
+  </div>
+</div>

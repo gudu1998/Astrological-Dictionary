@@ -1,0 +1,33 @@
+@import '../../../styles.scss';
+
+.header-container {
+  background-color: $secondary-color;
+  padding: 16px 16px;
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+}
+
+.header-text {
+  font-family: $primary-font;
+  line-height: 22.4px;
+  color: $primary-color;
+  position: relative;
+  cursor: pointer;
+}
+
+.header-wrapper {
+  gap: 40px;
+}
+
+.header-text:hover::after,
+.header-text.active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background-color: $primary-color;
+  text-decoration: underline;
+}

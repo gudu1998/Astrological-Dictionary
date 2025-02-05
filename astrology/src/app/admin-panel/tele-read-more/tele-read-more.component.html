@@ -1,0 +1,12 @@
+<td>
+  <div class="description-container" [class.expanded]="!isCollapsed">
+    <div [innerHTML]="content"></div>
+  </div>
+  <a
+    *ngIf="isCollapsable"
+    class="read-more"
+    (click)="isCollapsed = !isCollapsed"
+  >
+    {{ isCollapsed ? "Read More" : "Read Less" }}
+  </a>
+</td>

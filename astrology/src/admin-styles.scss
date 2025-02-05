@@ -1,0 +1,15 @@
+@font-face {
+  font-family: 'DM Sans';
+  src: url('/assets/fonts/DMSans-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+$primary-font: 'DM Sans';
+$primary-color: #333333;
+$secondary-color: #FFFFFF;
+$tertiary-color: #222222;
+$text-color: rgba(34, 34, 34, 0.72);
+$border-light: rgba(34, 34, 34, 0.2);
+$side-menu-bg-color: rgba(39, 110, 241, 0.1);
+$side-menu-dark-color: rgba(39, 110, 241, 1);

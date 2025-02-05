@@ -1,0 +1,270 @@
+@import "../../../styles.scss";
+
+.logo-bg-image {
+  background-image: url("../../../assets/images/light-galaxy.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 120px 0px;
+}
+
+.logo-container {
+  gap: 36px;
+}
+
+.logo-header-text {
+  font-family: $secondary-font;
+  font-size: 80px;
+  letter-spacing: -0.04em;
+  text-align: center;
+  line-height: 76.8px;
+  color: $primary-color;
+  max-width: 588px;
+}
+
+.logo-para-text {
+  font-family: $primary-font;
+  font-size: 15px;
+  line-height: 21px;
+  letter-spacing: -0.01em;
+  color: $primary-color;
+  text-align: center;
+  max-width: 384px;
+}
+
+.horoscope-btn {
+  border: none;
+  height: 46px;
+  border-radius: 4px;
+  padding: 18px 16px;
+  color: #ffffff;
+  background-color: $button-color;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.logo-img {
+  position: relative;
+}
+
+.logo-outer {
+  width: 544px;
+  height: 544px;
+}
+
+.logo-inner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  height: 400px;
+  animation: rotate-inner 5s linear infinite;
+}
+
+@keyframes rotate-inner {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+.astrology-container {
+  background-image: url("../../../assets/images/astrology.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 801px;
+  padding: 120px;
+}
+
+.astrology-gap {
+  gap: 126px;
+}
+
+.astrology-text {
+  font-family: $secondary-font;
+  font-size: 40px;
+  letter-spacing: -0.04em;
+  line-height: 38.4px;
+  color: $primary-color;
+}
+
+.alphabet-gap {
+  gap: 16px;
+}
+
+.dictionary-gap {
+  gap: 40px;
+  max-width: 384px;
+}
+
+.alphabet-text {
+  font-family: $primary-font;
+  line-height: 22.4px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: $primary-color;
+  cursor: pointer;
+}
+
+.astrology-group {
+  border: 1px solid $primary-color;
+  border-radius: 4px;
+  height: 46px;
+  width: 384px;
+}
+
+.astrology-field {
+  width: 100%;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  padding: 12px 16px;
+  font-family: $primary-font;
+  line-height: 22.4px;
+  letter-spacing: -0.01em;
+  color: $primary-color;
+}
+
+.astrology-field::placeholder {
+  font-family: $primary-font;
+  line-height: 22.4px;
+  letter-spacing: -0.01em;
+  color: $primary-color;
+}
+
+.alphabet-search {
+  font-family: $primary-font;
+  line-height: 22.4px;
+  letter-spacing: -0.04em;
+  color: $primary-color;
+}
+
+.horizontal-border {
+  height: 1px;
+  background-color: $border-color;
+  opacity: 20%;
+}
+
+.profile-container {
+  background-image: url("../../../assets/images/yellow-galaxy.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 120px;
+}
+
+.profile-text {
+  font-family: $secondary-font;
+  font-size: 72px;
+  line-height: 69.12px;
+  letter-spacing: -0.04em;
+  color: $secondary-color;
+  width: 588px;
+  text-align: center;
+}
+
+.profile-para {
+  font-family: $primary-font;
+  font-size: 15px;
+  line-height: 21px;
+  letter-spacing: -0.01em;
+  color: $tertiary-color;
+  width: 384px;
+  text-align: center;
+}
+
+.moon-container {
+  background-image: url("../../../assets/images/light-yellow-galaxy.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 120px;
+}
+
+.moon-sign-gap {
+  gap: 24px;
+}
+
+.moon-sign-container {
+  width: 180px;
+  height: 180px;
+  border-radius: 8px;
+  background-color: $card-color;
+}
+
+.dream-container {
+  background-image: url("../../../assets/images/dark-galaxy.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 801px;
+  padding: 120px;
+}
+
+.moon-sign-input-gap {
+  gap: 24px;
+}
+
+.moon-sign-group {
+  position: relative;
+  border-radius: 4px;
+  height: 46px;
+  width: 384px;
+  display: flex;
+  align-items: center;
+}
+
+.moon-sign-field {
+  width: 100%;
+  height: 100%;
+  outline: none;
+  border: none;
+  background-color: $primary-color;
+  padding: 12px 16px;
+  font-family: $primary-font;
+  line-height: 22.4px;
+  letter-spacing: -0.01em;
+  color: $input-secondary-color;
+  border-radius: 4px;
+}
+
+.moon-sign-field::placeholder {
+  font-family: $primary-font;
+  line-height: 22.4px;
+  letter-spacing: -0.01em;
+  color: $input-secondary-color;
+}
+
+.input-icon {
+  position: absolute;
+  right: 16px;
+  pointer-events: none;
+}
+
+.alphabet-text.underline {
+  text-decoration: underline;
+}
+
+.letter-scroll {
+  max-height: 100vh;
+  overflow-y: scroll;
+}
+
+.letter-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+
+.letter-scroll::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+.letter-scroll::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 10px;
+  height: 50px;
+  cursor: pointer;
+}

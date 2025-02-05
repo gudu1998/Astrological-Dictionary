@@ -1,0 +1,95 @@
+
+  <div class="logo-bg-image logo-container d-flex flex-column align-items-center">
+    <span class="logo-header-text">Discovering the universe inside you</span>
+    <p class="logo-para-text">Exploring the vast universe that resides within you, uncovering the hidden depths of your
+      thoughts.</p>
+    <button class="d-flex align-items-center horoscope-btn">Check Horoscope</button>
+    <div class="logo-img">
+      <img src="../../assets/images/logo-outer.svg" class="logo-outer" />
+      <img src="../../assets/images/logo-inner.svg" class="logo-inner" />
+    </div>
+  </div>
+  <div class="astrology-container">
+    <div class="d-flex astrology-gap">
+      <div class="d-flex flex-column dictionary-gap">
+        <span class="astrology-text">Astrological dictionary is your go-to for all things astrology.</span>
+        <div class="d-flex flex-wrap alphabet-gap">
+          <ng-container *ngFor="let letter of alphabetArray">
+            <span class="alphabet-text" [class.underline]="selectedAstrologyLetter === letter" (click)="onClickAstrology(letter)">{{ letter }}</span>
+          </ng-container>
+        </div>
+        <div class="astrology-group">
+          <input type="text" placeholder="Search any about astrology..." class="astrology-field" (input)="onSearchAstrology($event)"/>
+        </div>
+      </div>
+      <div class="d-flex flex-column letter-scroll">
+        <ng-container *ngFor="let item of astrologicalTerm">
+          <span class="alphabet-search">
+            {{item.name}} - {{item.desc}}
+          </span>
+          <div class="horizontal-border my-3"></div>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+
+  <div class="profile-container d-flex flex-column align-items-center">
+    <span class="profile-text mb-4">Your detailed astrological profile</span>
+    <p class="profile-para">Exploring the vast universe that resides within you, uncovering the hidden depths of your
+      thoughts.</p>
+    <div class="d-flex flex-wrap moon-sign-gap mt-1">
+      <div *ngFor="let image of moonSignImages"
+        class="moon-sign-container d-flex justify-content-center align-items-center">
+        <img [src]="image" />
+      </div>
+    </div>
+  </div>
+
+  <div class="dream-container">
+    <div class="d-flex astrology-gap">
+      <div class="d-flex flex-column dictionary-gap">
+        <span class="astrology-text">Dream dictionary is your go-to for all things your dream.</span>
+        <div class="d-flex flex-wrap alphabet-gap">
+          <ng-container *ngFor="let letter of alphabetArray">
+            <span class="alphabet-text" [class.underline]="selectedDreamLetter === letter" (click)="onClickDream(letter)">{{ letter }}</span>
+          </ng-container>
+        </div>
+        <div class="astrology-group">
+          <input type="text" placeholder="Search any about dream.." class="astrology-field" (input)="onSearchDream($event)"/>
+        </div>
+      </div>
+      <div class="d-flex flex-column letter-scroll">
+        <ng-container *ngFor="let item of dreamTerm">
+          <span class="alphabet-search">
+            {{item.name}} - {{item.desc}}
+          </span>
+          <div class="horizontal-border my-3"></div>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+
+  <div class="moon-container d-flex flex-column align-items-center">
+    <span class="profile-text mb-4">Check out your moon sign and star</span>
+    <p class="profile-para">This moon sign and star are calculated based on Indian Nirayana system. You can use this
+      information to view Yearly predictions in this site.</p>
+    <div class="d-flex flex-column moon-sign-input-gap mt-2">
+      <div class="moon-sign-group">
+        <input type="text" placeholder="Select date" class="moon-sign-field" />
+        <img src="../../assets/images/calendar.svg" alt="Calendar Icon" class="input-icon" />
+      </div>
+      <div class="moon-sign-group">
+        <input type="text" placeholder="Select Birth time" class="moon-sign-field" />
+        <img src="../../assets/images/time.svg" alt="Clock Icon" class="input-icon" />
+      </div>
+      <div class="moon-sign-group">
+        <input type="text" placeholder="City of birth" class="moon-sign-field" />
+        <img src="../../assets/images/location.svg" alt="Location Icon" class="input-icon" />
+      </div>
+      <button class="d-flex align-items-center justify-content-center horoscope-btn">
+        Check Horoscope
+      </button>
+    </div>
+
+  </div>
+

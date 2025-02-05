@@ -1,0 +1,23 @@
+@font-face {
+  font-family: "ZT Mota";
+  src: url("/assets/fonts/ZTMota-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Outfit";
+  src: url("/assets/fonts/Outfit-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+$primary-color: #fafaf9;
+$secondary-color: #292524;
+$tertiary-color: #78716c;
+$button-color: #f59e0b;
+$border-color: #fef3c7;
+$input-secondary-color: #57534e;
+$card-color: #fffbeb;
+$primary-font: "Outfit";
+$secondary-font: "ZT Mota";

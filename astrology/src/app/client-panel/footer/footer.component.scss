@@ -1,0 +1,12 @@
+@import '../../../styles.scss';
+.footer-container {
+  background-color: $secondary-color;
+  padding: 16px 16px;
+  width: 100%;
+}
+
+.footer-text {
+  font-family: $primary-font;
+  line-height: 22.4px;
+  color: $primary-color;
+}

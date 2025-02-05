@@ -1,0 +1,24 @@
+<div
+  class="d-flex justify-content-between align-items-center header-container ps-3 pe-4"
+>
+  <div class="d-flex align-items-center">
+    <img
+      src="../../../assets/images/astrology-logo.svg"
+      alt="astrological-logo"
+      class="astrology-logo"
+    />
+    <span class="astrological-text ms-2">Astrological Dictionary</span>
+  </div>
+  <div class="d-flex align-items-center profile-gap">
+    <img src="../../../assets/images/profile.svg" alt="profile" />
+    <span class="name-text">{{ fullName }}</span>
+    <div class="vertical-line"></div>
+    <span class="admin-text">Admin</span>
+    <img
+      src="../../../assets/images/logout.svg"
+      alt="logout"
+      (click)="logOut()"
+      class="logout-icon"
+    />
+  </div>
+</div>
