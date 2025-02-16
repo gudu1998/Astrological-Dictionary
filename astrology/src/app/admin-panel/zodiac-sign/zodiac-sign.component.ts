@@ -37,6 +37,7 @@ export class ZodiacSignComponent implements OnInit {
       placeholder: 'Enter your description here...',
     };
     zodiacSignForm!: FormGroup;
+    filteredData = [...this.data];
 
     ngOnInit() {
       this.zodiacSignForm = this.fb.group({
@@ -50,6 +51,7 @@ export class ZodiacSignComponent implements OnInit {
       this._adminService.fetchZodiacSign().subscribe({
         next: (response) => {
           this.data = response;
+          this.filteredData = [...this.data];
         },
         error: () => {
           this.toastr.error(
@@ -62,6 +64,20 @@ export class ZodiacSignComponent implements OnInit {
           );
         },
       });
+    }
+
+    onSearchChange(event: any) {
+      if (!event.target.value) {
+        this.filteredData = [...this.data];
+        return;
+      }
+
+      const lowerSearch = event.target.value.toLowerCase();
+      this.filteredData = this.data.filter((row: any) =>
+        Object.values(row).some((value: any) =>
+          value.toString().toLowerCase().includes(lowerSearch)
+        )
+      );
     }
 
     openEditZodiacSignModal(

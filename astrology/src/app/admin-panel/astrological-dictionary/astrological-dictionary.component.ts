@@ -36,6 +36,7 @@ export class AstrologicalDictionaryComponent implements OnInit {
     placeholder: 'Enter your description here...',
   };
   astrologicalForm!: FormGroup;
+  filteredData = [...this.data];
 
   ngOnInit() {
     this.astrologicalForm = this.fb.group({
@@ -49,6 +50,7 @@ export class AstrologicalDictionaryComponent implements OnInit {
     this._adminService.fetchAstrologicalDictionary().subscribe({
       next: (response) => {
         this.data = response;
+        this.filteredData = [...this.data];
       },
       error: () => {
         this.toastr.error(
@@ -61,6 +63,20 @@ export class AstrologicalDictionaryComponent implements OnInit {
         );
       },
     });
+  }
+
+  onSearchChange(event: any) {
+    if (!event.target.value) {
+      this.filteredData = [...this.data];
+      return;
+    }
+
+    const lowerSearch = event.target.value.toLowerCase();
+    this.filteredData = this.data.filter((row: any) =>
+      Object.values(row).some((value: any) =>
+        value.toString().toLowerCase().includes(lowerSearch)
+      )
+    );
   }
 
   openEditAstrologicalDictionaryModal(

@@ -1,7 +1,8 @@
 @import "../../../styles.scss";
 
+
 .logo-bg-image {
-  background-image: url("../../../assets/images/light-galaxy.jpg");
+  background-image: url("../../../assets/images/light-galaxy.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -27,7 +28,7 @@
   font-size: 15px;
   line-height: 21px;
   letter-spacing: -0.01em;
-  color: $primary-color;
+  color: $text-color;
   text-align: center;
   max-width: 384px;
 }
@@ -41,6 +42,7 @@
   background-color: $button-color;
   font-weight: 600;
   letter-spacing: -0.02em;
+  line-height: 19.25px;
 }
 
 .logo-img {
@@ -59,7 +61,7 @@
   transform: translate(-50%, -50%);
   width: 400px;
   height: 400px;
-  animation: rotate-inner 5s linear infinite;
+  animation: rotate-inner 8s linear infinite;
 }
 
 @keyframes rotate-inner {
@@ -72,7 +74,7 @@
 }
 
 .astrology-container {
-  background-image: url("../../../assets/images/astrology.jpg");
+  background-image: url("../../../assets/images/astrology.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -106,8 +108,57 @@
   line-height: 22.4px;
   font-weight: 600;
   letter-spacing: -0.01em;
-  color: $primary-color;
+  color: #fafaf9;
   cursor: pointer;
+  position: relative;
+  transition: color 0.3s ease-in-out, transform 0.2s ease-in-out;
+
+  &:hover {
+    color: #ffd700;
+    text-shadow: 0 0 10px #ffd700, 0 0 20px #ffcc00;
+    transform: scale(1.1);
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -3px;
+    width: 0%;
+    height: 3px;
+    background: #ffd700;
+    border-radius: 2px;
+    transition: width 0.4s ease, left 0.4s ease, box-shadow 0.3s ease-in-out;
+  }
+
+  &:hover::after {
+    width: 100%;
+    left: 0%;
+    box-shadow: 0px 0px 12px #ffd700, 0px 0px 25px #ffcc00;
+  }
+
+  &.selected {
+    color: #ffffff;
+    text-shadow: 0 0 15px #ffffff, 0 0 30px #ffffff;
+    transform: scale(1.1);
+    animation: pulseGlow 1.2s infinite alternate;
+
+    &::after {
+      background: #ffffff;
+      width: 100%;
+      left: 0%;
+      box-shadow: 0px 0px 15px #ffffff, 0px 0px 30px #ffffff;
+    }
+  }
+}
+
+@keyframes pulseGlow {
+  0% {
+    text-shadow: 0 0 10px #ffffff, 0 0 20px #ffffff;
+  }
+  100% {
+    text-shadow: 0 0 20px #ffffff, 0 0 40px #ffffff;
+  }
 }
 
 .astrology-group {
@@ -150,7 +201,7 @@
 }
 
 .profile-container {
-  background-image: url("../../../assets/images/yellow-galaxy.jpg");
+  background-image: url("../../../assets/images/yellow-galaxy.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -178,7 +229,7 @@
 }
 
 .moon-container {
-  background-image: url("../../../assets/images/light-yellow-galaxy.jpg");
+  background-image: url("../../../assets/images/light-yellow-galaxy.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -197,7 +248,7 @@
 }
 
 .dream-container {
-  background-image: url("../../../assets/images/dark-galaxy.jpg");
+  background-image: url("../../../assets/images/dark-galaxy.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -245,26 +296,134 @@
   pointer-events: none;
 }
 
-.alphabet-text.underline {
-  text-decoration: underline;
-}
 
 .letter-scroll {
   max-height: 100vh;
   overflow-y: scroll;
-}
 
-.letter-scroll::-webkit-scrollbar {
-  width: 6px;
-}
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
 
-.letter-scroll::-webkit-scrollbar-track {
-  background: var(--bg-primary);
-}
-
-.letter-scroll::-webkit-scrollbar-thumb {
-  background-color: #888;
+  &::-webkit-scrollbar-thumb {
+    background-color: #888;
   border-radius: 10px;
-  height: 50px;
   cursor: pointer;
+  }
+}
+
+
+@media screen and (max-width: 992px) {
+  .logo-header-text {
+    font-size: 72px;
+    line-height: 64.8px;
+    max-width: 326px;
+  }
+
+  .horoscope-btn {
+    width: 326px;
+  }
+
+  .logo-para-text {
+    max-width: 326px;
+  }
+
+  .logo-outer {
+    width: 272px;
+    height: 272px;
+  }
+
+  .logo-inner {
+    width: 200px;
+    height: 200px;
+  }
+
+  .astrology-container {
+    height: 1291px;
+    padding: 80px 36px;
+  }
+
+  .astrology-gap {
+    gap: 40px;
+  }
+
+  .astrology-text {
+    max-width: 304px;
+  }
+
+  .astrology-group {
+    width: 100%;
+  }
+
+  .letter-scroll {
+    max-height: 715px;
+  }
+
+  .profile-container {
+    padding: 120px 10px;
+    height: 733px;
+    gap: 36px;
+  }
+
+  .moon-sign-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  .moon-sign-img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .profile-text {
+    font-size: 56px;
+    line-height: 53.76px;
+    width: 326px;
+  }
+
+  .profile-para {
+    width: 326px;
+    color: #1c1917;
+  }
+
+  .moon-sign-container {
+    width: 135px;
+    height: 135px;
+    border-radius: 6px;
+    flex-shrink: 0;
+  }
+
+  .dream-container {
+    height: 1235px;
+    padding: 80px 36px;
+  }
+
+  .moon-container {
+    padding: 120px 40px;
+  }
+
+  .profile-label {
+    color: $tertiary-color;
+    font-family: $primary-font;
+    font-size: 15px;
+    line-height: 21px;
+    letter-spacing: -0.01em;
+    text-align: center;
+  }
+
+  .moon-sign-group {
+    height: 46px;
+    width: 304px;
+  }
+
+  .moon-sign-field {
+    width: 100%;
+    height: 100%;
+  }
 }

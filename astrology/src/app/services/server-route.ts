@@ -1,9 +1,10 @@
 // LOCAL
-const BASE_URL = 'http://localhost:5001/api/v1';
+// const BASE_URL = 'http://localhost:5000/api/v1';
+const BASE_URL = 'https://astrological-dictionary-backend.onrender.com/api/v1';
 
 export const ROUTES = {
-  ASTROLOGICAL_TERM: `${BASE_URL}` + '/astrology/{letter}',
-  DREAM_TERM: `${BASE_URL}` + '/dream/{letter}',
+  ASTROLOGICAL_TERM: `${BASE_URL}` + '/home/astrology/{letter}',
+  DREAM_TERM: `${BASE_URL}` + '/home/dream/{letter}',
   ASTROLOGICAL_DICTIONARY: `${BASE_URL}` + '/admin/astrological-dictionary',
   ADD_ASTROLOGICAL_DICTIONARY:
     `${BASE_URL}` + '/admin/astrological-dictionary/save',

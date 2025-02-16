@@ -36,6 +36,7 @@ export class DreamDictionaryComponent implements OnInit {
     placeholder: 'Enter your description here...',
   };
   dreamForm!: FormGroup;
+  filteredData = [...this.data];
 
   ngOnInit() {
     this.dreamForm = this.fb.group({
@@ -45,10 +46,25 @@ export class DreamDictionaryComponent implements OnInit {
     this.fetchDreamDictionary();
   }
 
+  onSearchChange(event: any) {
+    if (!event.target.value) {
+      this.filteredData = [...this.data];
+      return;
+    }
+
+    const lowerSearch = event.target.value.toLowerCase();
+    this.filteredData = this.data.filter((row: any) =>
+      Object.values(row).some((value: any) =>
+        value.toString().toLowerCase().includes(lowerSearch)
+      )
+    );
+  }
+
   fetchDreamDictionary() {
     this._adminService.fetchDreamDictionary().subscribe({
       next: (response) => {
         this.data = response;
+        this.filteredData = [...this.data];
       },
       error: () => {
         this.toastr.error(
