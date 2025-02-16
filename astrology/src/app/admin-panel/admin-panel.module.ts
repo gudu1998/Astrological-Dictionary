@@ -12,6 +12,7 @@ import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { TeleReadMoreComponent } from './tele-read-more/tele-read-more.component';
 import { ZodiacSignComponent } from './zodiac-sign/zodiac-sign.component';
 import { LoginComponent } from './login/login.component';
+import { LoaderComponent } from './loader/loader.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { LoginComponent } from './login/login.component';
     DreamDictionaryComponent,
     TeleReadMoreComponent,
     ZodiacSignComponent,
-    LoginComponent
+    LoginComponent,
+    LoaderComponent
   ],
   imports: [
     AdminPanelRoutingModule,
@@ -30,7 +32,7 @@ import { LoginComponent } from './login/login.component';
     FormsModule,
     ModalModule.forRoot(),
     CKEditorModule,
-    ReactiveFormsModule
-  ]
+    ReactiveFormsModule,
+]
 })
 export class AdminPanelModule { }

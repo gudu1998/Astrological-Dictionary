@@ -5,6 +5,7 @@ import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import * as ClassicEditor from 'src/assets/ckeditor/ckeditor';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
+import { LoaderService } from '../loader/loader.service';
 
 @Component({
   selector: 'app-pagination',
@@ -16,7 +17,8 @@ export class DreamDictionaryComponent implements OnInit {
     private _adminService: AdminService,
     private modalService: BsModalService,
     private fb: FormBuilder,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private loaderService: LoaderService
   ) {}
 
   Editor = ClassicEditor;
@@ -61,12 +63,15 @@ export class DreamDictionaryComponent implements OnInit {
   }
 
   fetchDreamDictionary() {
+    this.loaderService.show();
     this._adminService.fetchDreamDictionary().subscribe({
       next: (response) => {
         this.data = response;
         this.filteredData = [...this.data];
+        this.loaderService.hide();
       },
       error: () => {
+        this.loaderService.hide();
         this.toastr.error(
           'Some error occured while fetching Dream Dictionary.',
           '',
@@ -122,6 +127,7 @@ export class DreamDictionaryComponent implements OnInit {
   saveDictionary() {
     this.dreamForm.markAllAsTouched();
     if (this.dreamForm.valid) {
+      this.loaderService.show();
       let body = {
         title: this.dreamForm.get('title')?.value,
         desc: this.dreamForm.get('desc')?.value,
@@ -139,8 +145,10 @@ export class DreamDictionaryComponent implements OnInit {
 
           this.fetchDreamDictionary();
           this.modalRef.hide();
+          this.loaderService.hide();
         },
         error: () => {
+          this.loaderService.hide();
           this.toastr.error(
             'Some error occured while adding Dream Dictionary.',
             '',
@@ -157,6 +165,7 @@ export class DreamDictionaryComponent implements OnInit {
   saveEditedDictionary(termId: string) {
     this.dreamForm.markAllAsTouched();
     if (this.dreamForm.valid) {
+      this.loaderService.show();
       let body = {
         title: this.dreamForm.get('title')?.value,
         desc: this.dreamForm.get('desc')?.value,
@@ -173,8 +182,10 @@ export class DreamDictionaryComponent implements OnInit {
           );
           this.fetchDreamDictionary();
           this.modalRef.hide();
+          this.loaderService.hide();
         },
         error: () => {
+          this.loaderService.hide();
           this.toastr.error(
             'Some error occured while updating Dream Dictionary.',
             '',
@@ -189,6 +200,7 @@ export class DreamDictionaryComponent implements OnInit {
   }
 
   submitConfirmDelete(termId: string): void {
+    this.loaderService.show();
     this._adminService.deleteDreamTermByID(termId).subscribe({
       next: () => {
         this.toastr.success(
@@ -201,8 +213,10 @@ export class DreamDictionaryComponent implements OnInit {
         );
         this.fetchDreamDictionary();
         this.modalRef.hide();
+        this.loaderService.hide();
       },
       error: () => {
+        this.loaderService.hide();
         this.toastr.error(
           'Some error occured while deleting Dream Dictionary.',
           '',

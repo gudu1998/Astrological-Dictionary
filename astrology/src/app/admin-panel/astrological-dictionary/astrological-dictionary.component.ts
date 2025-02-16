@@ -5,6 +5,7 @@ import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import * as ClassicEditor from 'src/assets/ckeditor/ckeditor';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
+import { LoaderService } from '../loader/loader.service';
 
 @Component({
   selector: 'astrological-dictionary',
@@ -16,7 +17,8 @@ export class AstrologicalDictionaryComponent implements OnInit {
     private _adminService: AdminService,
     private modalService: BsModalService,
     private fb: FormBuilder,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private loaderService: LoaderService
   ) {}
 
   Editor = ClassicEditor;
@@ -47,12 +49,15 @@ export class AstrologicalDictionaryComponent implements OnInit {
   }
 
   fetchAstrologicalDictionary() {
+    this.loaderService.show();
     this._adminService.fetchAstrologicalDictionary().subscribe({
       next: (response) => {
         this.data = response;
         this.filteredData = [...this.data];
+        this.loaderService.hide();
       },
       error: () => {
+        this.loaderService.hide();
         this.toastr.error(
           'Some error occured while fetching Astrological Dictionary.',
           '',
@@ -122,6 +127,7 @@ export class AstrologicalDictionaryComponent implements OnInit {
   saveDictionary() {
     this.astrologicalForm.markAllAsTouched();
     if (this.astrologicalForm.valid) {
+      this.loaderService.show();
       let body = {
         title: this.astrologicalForm.get('title')?.value,
         desc: this.astrologicalForm.get('desc')?.value,
@@ -139,8 +145,10 @@ export class AstrologicalDictionaryComponent implements OnInit {
 
           this.fetchAstrologicalDictionary();
           this.modalRef.hide();
+          this.loaderService.hide();
         },
         error: () => {
+          this.loaderService.hide();
           this.toastr.error(
             'Some error occured while adding Astrological Dictionary.',
             '',
@@ -157,6 +165,7 @@ export class AstrologicalDictionaryComponent implements OnInit {
   saveEditedDictionary(termId: string) {
     this.astrologicalForm.markAllAsTouched();
     if (this.astrologicalForm.valid) {
+      this.loaderService.show();
       let body = {
         title: this.astrologicalForm.get('title')?.value,
         desc: this.astrologicalForm.get('desc')?.value,
@@ -173,8 +182,10 @@ export class AstrologicalDictionaryComponent implements OnInit {
           );
           this.fetchAstrologicalDictionary();
           this.modalRef.hide();
+          this.loaderService.hide();
         },
         error: () => {
+          this.loaderService.hide();
           this.toastr.error(
             'Some error occured while updating Astrological Dictionary.',
             '',
@@ -189,6 +200,7 @@ export class AstrologicalDictionaryComponent implements OnInit {
   }
 
   submitConfirmDelete(termId: string): void {
+    this.loaderService.show();
     this._adminService.deleteAstrologicalTermByID(termId).subscribe({
       next: () => {
         this.toastr.success(
@@ -201,8 +213,10 @@ export class AstrologicalDictionaryComponent implements OnInit {
         );
         this.fetchAstrologicalDictionary();
         this.modalRef.hide();
+        this.loaderService.hide();
       },
       error: () => {
+        this.loaderService.hide();
         this.toastr.error(
           'Some error occured while deleting Dream Dictionary.',
           '',

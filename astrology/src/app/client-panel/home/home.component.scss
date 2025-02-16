@@ -79,7 +79,7 @@
   background-position: center;
   background-repeat: no-repeat;
   height: 801px;
-  padding: 120px;
+  padding: 120px 60px 120px 120px;
 }
 
 .astrology-gap {
@@ -253,7 +253,7 @@
   background-position: center;
   background-repeat: no-repeat;
   height: 801px;
-  padding: 120px;
+  padding: 120px 60px 120px 120px;
 }
 
 .moon-sign-input-gap {
@@ -298,17 +298,13 @@
 
 
 .letter-scroll {
-  max-height: 100vh;
+  max-height: 550px;
   overflow-y: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 
   &::-webkit-scrollbar {
-    width: 6px;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background-color: #888;
-  border-radius: 10px;
-  cursor: pointer;
+    display: none;
   }
 }
 

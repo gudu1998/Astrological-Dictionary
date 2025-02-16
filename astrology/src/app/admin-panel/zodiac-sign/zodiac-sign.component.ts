@@ -5,6 +5,7 @@ import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import * as ClassicEditor from 'src/assets/ckeditor/ckeditor';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
+import { LoaderService } from '../loader/loader.service';
 
 
 @Component({
@@ -17,7 +18,8 @@ export class ZodiacSignComponent implements OnInit {
       private _adminService: AdminService,
       private modalService: BsModalService,
       private fb: FormBuilder,
-      private toastr: ToastrService
+      private toastr: ToastrService,
+      private loaderService: LoaderService
     ) {}
 
     Editor = ClassicEditor;
@@ -48,12 +50,15 @@ export class ZodiacSignComponent implements OnInit {
     }
 
     fetchZodiacSign() {
+      this.loaderService.show();
       this._adminService.fetchZodiacSign().subscribe({
         next: (response) => {
           this.data = response;
           this.filteredData = [...this.data];
+          this.loaderService.hide();
         },
         error: () => {
+          this.loaderService.hide();
           this.toastr.error(
             'Some error occured while fetching Zodiac Sign.',
             '',
@@ -123,6 +128,7 @@ export class ZodiacSignComponent implements OnInit {
     saveZodiacSign() {
       this.zodiacSignForm.markAllAsTouched();
       if(this.zodiacSignForm.valid) {
+        this.loaderService.show();
       let body = {
         title: this.zodiacSignForm.get('title')?.value,
         desc: this.zodiacSignForm.get('desc')?.value,
@@ -140,8 +146,10 @@ export class ZodiacSignComponent implements OnInit {
 
           this.fetchZodiacSign();
           this.modalRef.hide();
+          this.loaderService.hide();
         },
         error: () => {
+          this.loaderService.hide();
           this.toastr.error(
             'Some error occured while adding Zodiac Sign.',
             '',
@@ -158,6 +166,7 @@ export class ZodiacSignComponent implements OnInit {
     saveEditedZodiacSign(termId: string) {
       this.zodiacSignForm.markAllAsTouched();
       if(this.zodiacSignForm.valid) {
+        this.loaderService.show();
       let body = {
         title: this.zodiacSignForm.get('title')?.value,
         desc: this.zodiacSignForm.get('desc')?.value,
@@ -174,8 +183,10 @@ export class ZodiacSignComponent implements OnInit {
           );
           this.fetchZodiacSign();
           this.modalRef.hide();
+          this.loaderService.hide();
         },
         error: () => {
+          this.loaderService.hide();
           this.toastr.error(
             'Some error occured while updating Zodiac Sign.',
             '',
@@ -190,6 +201,7 @@ export class ZodiacSignComponent implements OnInit {
     }
 
     submitConfirmDelete(termId: string): void {
+      this.loaderService.show();
       this._adminService.deleteZodiacSignByID(termId).subscribe({
         next: () => {
           this.toastr.success(
@@ -202,8 +214,10 @@ export class ZodiacSignComponent implements OnInit {
           );
           this.fetchZodiacSign();
           this.modalRef.hide();
+          this.loaderService.hide();
         },
         error: () => {
+          this.loaderService.hide();
           this.toastr.error(
             'Some error occured while deleting Zodiac Sign.',
             '',

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
   template: `
+  <app-loader></app-loader>
     <div class="d-flex flex-column">
       <admin-header></admin-header>
       <div class="admin-container">
