@@ -1,0 +1,137 @@
+.astro-dictionary {
+  background-color: #ffffff;
+  gap: 40px;
+  padding: 80px 200px;
+}
+
+.astro-text {
+  font-family: "Public Sans";
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 120%;
+  letter-spacing: -0.02em;
+  color: #292524;
+  width: 480px;
+}
+
+.astro-para {
+  font-family: "Public Sans";
+  line-height: 150%;
+  color: #57534e;
+  width: 480px;
+}
+
+.astro-image {
+  position: relative;
+  background: url("../../../assets/images/Gradient.png");
+}
+
+.cosmic-image {
+  width: 338px;
+  height: 456px;
+}
+
+.icon-container {
+  position: absolute;
+  border-radius: 50%;
+  top: 233px;
+  right: 425px;
+}
+
+.icon {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  transform: translate(-50%, -50%) rotate(var(--angle)) translate(110px)
+    rotate(calc(-1 * var(--angle)));
+}
+
+.cosmic-text {
+  font-family: "Public Sans";
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 120%;
+  letter-spacing: -0.02em;
+  color: #292524;
+  width: 480px;
+}
+
+.cosmic-para {
+  font-family: "Public Sans";
+  line-height: 150%;
+  color: #57534e;
+  width: 480px;
+}
+
+.zodiac-bg-color {
+  background-color: #feda44;
+  border-radius: 50%;
+}
+
+.astro-content {
+  border-radius: 16px;
+  background: #fffbee;
+  padding: 40px;
+  gap: 40px;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.profile-container {
+  border-radius: 16px;
+  padding: 40px;
+  background: linear-gradient(202.85deg, #bef2ff -16.39%, #ffffff 71.56%);
+  border: 3px solid #feda44;
+}
+
+.zodiac-text {
+  font-family: "Public Sans";
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 120%;
+  letter-spacing: -0.02em;
+  text-transform: capitalize;
+  color: #292524;
+}
+
+.zodiac-desc {
+  font-family: "Public Sans";
+  line-height: 150%;
+  color: #57534e;
+}
+
+@media screen and (max-width: 992px) {
+  .astro-dictionary {
+    gap: 36px;
+    padding: 40px 24px;
+  }
+
+  .astro-text {
+    font-size: 40px;
+    width: 100%;
+  }
+
+  .astro-para {
+    width: 100%;
+  }
+
+  .profile-container {
+    padding: 24px;
+  }
+
+  .icon-container {
+    top: 229px;
+    right: 170px;
+  }
+
+  .astro-image {
+    position: relative;
+    background: url("../../../assets/images/gradient-mobile.svg");
+  }
+}

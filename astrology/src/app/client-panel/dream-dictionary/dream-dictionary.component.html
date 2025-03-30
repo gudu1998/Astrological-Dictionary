@@ -1,0 +1,154 @@
+<div class="astro-dictionary d-flex flex-column">
+  <div class="d-flex flex-column astro-container">
+    <span class="astro-text"
+      >Align your dreams with the insights from a dream dictionary.</span
+    >
+    <span class="astro-para mt-3"
+      >Discover how to harmonize your life with the cosmos by utilizing an
+      astrological dictionary. This resource will guide you in understanding the
+      celestial influences.</span
+    >
+  </div>
+
+  <ng-container *ngIf="!isMobileDevice">
+    <div class="d-flex astro-image justify-content-between align-items-center">
+      <div class="d-flex flex-column">
+        <span class="cosmic-text"
+          >Explore the mystical links in your life with a comprehensive dream
+          dictionary.</span
+        >
+        <span class="cosmic-para mt-3"
+          >Explore the cosmic connections that shape your life through our
+          comprehensive astrological glossary. Discover the meanings behind the
+          stars and how they influence your journey.</span
+        >
+      </div>
+      <img
+        src="../../../assets/images/dream-dictionary.svg"
+        class="cosmic-image"
+      />
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="isMobileDevice">
+    <div class="d-flex astro-image flex-column">
+      <span class="cosmic-text"
+        >Explore the mystical links in your life with a comprehensive dream
+        dictionary.</span
+      >
+      <span class="cosmic-para mt-3"
+        >Explore the cosmic connections that shape your life through our
+        comprehensive astrological glossary. Discover the meanings behind the
+        stars and how they influence your journey.</span
+      >
+      <img
+        src="../../../assets/images/dream-dictionary.svg"
+        class="cosmic-image mt-5"
+      />
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="!isMobileDevice">
+    <div class="d-flex flex-column astro-content align-items-center">
+      <div class="d-flex flex-column">
+        <span class="search-text">Search for your dream</span>
+        <span class="celestial-text mt-3"
+          >Delve into the celestial ties that define your existence with our
+          extensive astrological dictionary. Uncover the significance of the
+          cosmos and its impact on your personal path.</span
+        >
+      </div>
+      <div class="astrology-group position-relative">
+        <input
+          type="text"
+          placeholder="Search any word related to your dream..."
+          class="astrology-field"
+        />
+        <img src="../../../assets/images/search.svg" class="search-img" />
+      </div>
+
+      <div class="d-flex">
+        <div class="d-flex flex-column alphabet-gap alpha-width">
+          <span class="initial-text">Initial</span>
+          <ng-container *ngFor="let letter of alphabetArray">
+            <span
+              class="alphabet-text cursor-pointer"
+              [ngClass]="selectedAstrologyLetter === letter ? 'fw-700' : ''"
+              (click)="onClickAstrology(letter)"
+              >{{ letter }}</span
+            >
+          </ng-container>
+        </div>
+
+        <div class="d-flex flex-column alphabet-gap term-width">
+          <span class="initial-text"
+            >Terms ({{ astrologicalTerm.length }})</span
+          >
+          <ng-container *ngFor="let item of astrologicalTerm">
+            <span
+              class="alphabet-text cursor-pointer"
+              (click)="onClickAstrologyTerm(item.name, item.desc)"
+              [ngClass]="astrologyTerm === item.name ? 'fw-700' : ''"
+            >
+              {{ item.name }}
+            </span>
+          </ng-container>
+        </div>
+
+        <div class="d-flex flex-column alphabet-gap desc-width">
+          <span class="initial-text">Definition of {{ astrologyTerm }}</span>
+          <span class="alphabet-text">
+            {{ astrologicalDesc }}
+          </span>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="isMobileDevice">
+    <div class="d-flex flex-column astro-content">
+      <span class="search-text">Search for your dream</span>
+      <span class="celestial-text mt-3"
+        >Delve into the celestial ties that define your existence with our
+        extensive astrological dictionary. Uncover the significance of the
+        cosmos and its impact on your personal path.</span
+      >
+      <div class="astrology-group position-relative my-5">
+        <input
+          type="text"
+          placeholder="Search any word"
+          class="astrology-field"
+        />
+        <img src="../../../assets/images/search.svg" class="search-img" />
+      </div>
+
+      <div class="d-flex text-gap mb-5">
+        <ng-container *ngFor="let letter of alphabetArray">
+          <span
+            class="alphabet-text cursor-pointer"
+            (click)="onClickAstrology(letter)"
+            [ngClass]="selectedAstrologyLetter === letter ? 'fw-700' : ''"
+            >{{ letter }}</span
+          >
+        </ng-container>
+      </div>
+
+      <div class="d-flex text-gap mb-4">
+        <ng-container *ngFor="let item of astrologicalTerm">
+          <span
+            class="alphabet-text cursor-pointer"
+            (click)="onClickAstrologyTerm(item.name, item.desc)"
+            [ngClass]="astrologyTerm === item.name ? 'fw-700' : ''"
+          >
+            {{ item.name }}
+          </span>
+        </ng-container>
+      </div>
+
+      <span class="initial-text mb-4">Definition of {{ astrologyTerm }}</span>
+      <span class="alphabet-text">
+        {{ astrologicalDesc }}
+      </span>
+    </div>
+  </ng-container>
+</div>

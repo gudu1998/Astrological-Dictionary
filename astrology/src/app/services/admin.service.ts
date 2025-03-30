@@ -78,6 +78,14 @@ export class AdminService extends ApiService {
     );
   }
 
+  fetchZodiacSignByName(termName: string): Observable<any> {
+    return this.get<AstrologicalTermResponse>(
+      this.replacePathInfo(ROUTES.ZODIAC_SIGN_DETAILS, {
+        termName: termName,
+      })
+    );
+  }
+
   addZodiacSign(body: any) {
     return this.post(ROUTES.ADD_ZODIAC_SIGN, {
       body: body,

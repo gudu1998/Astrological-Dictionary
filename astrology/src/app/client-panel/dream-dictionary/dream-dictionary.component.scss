@@ -1,0 +1,213 @@
+.astro-dictionary {
+  background-color: #fef3c7;
+  gap: 40px;
+  padding: 80px 200px;
+}
+
+.astro-text {
+  font-family: "Public Sans";
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 120%;
+  letter-spacing: -0.02em;
+  color: #292524;
+  width: 480px;
+}
+
+.astro-para {
+  font-family: "Public Sans";
+  line-height: 150%;
+  color: #57534e;
+  width: 480px;
+}
+
+.astro-image {
+  border-radius: 16px;
+  height: 320px;
+
+  border-bottom-width: 1px;
+
+  padding: 40px;
+  background: url("../../../assets/images/Gradient.svg");
+}
+
+.cosmic-text {
+  font-family: "Public Sans";
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 120%;
+  letter-spacing: -0.02em;
+  color: #292524;
+  width: 480px;
+}
+
+.cosmic-para {
+  font-family: "Public Sans";
+  line-height: 150%;
+  color: #57534e;
+  width: 480px;
+}
+
+.cosmic-image {
+  border-radius: 500px;
+}
+
+.astro-content {
+  border-radius: 16px;
+  background: #fffbee;
+  padding: 40px;
+  gap: 40px;
+}
+
+.search-text {
+  font-family: "Public Sans";
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 120%;
+  letter-spacing: -0.02em;
+  text-align: center;
+  color: #292524;
+}
+
+.celestial-text {
+  font-family: "Public Sans";
+  line-height: 150%;
+  text-align: center;
+  color: #57534e;
+  width: 480px;
+}
+
+.astrology-group {
+  width: 480px;
+}
+
+.astrology-field {
+  width: 100%;
+  outline: none;
+  border: 1px solid #e7e5e4;
+  background-color: transparent;
+  padding: 12px 16px;
+  border-radius: 8px;
+
+  font-family: "Public Sans";
+  line-height: 150%;
+  color: #292524;
+  height: 48px;
+  font-weight: 600;
+}
+
+.astrology-field::placeholder {
+  font-family: "Public Sans";
+  line-height: 150%;
+  color: #57534e;
+  font-weight: 400;
+}
+
+.search-img {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+}
+
+.alphabet-gap {
+  gap: 24px;
+  max-height: 488px;
+  overflow-y: scroll;
+  padding: 16px 40px;
+}
+
+.initial-text {
+  font-family: "Public Sans";
+  line-height: 24px;
+  letter-spacing: -0.01em;
+  text-align: left;
+  color: #78716c;
+}
+
+.alphabet-text {
+  font-family: "Public Sans";
+  line-height: 24px;
+  text-align: left;
+  color: #57534e;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.alpha-width {
+  width: 120px;
+}
+
+.term-width {
+  width: 360px;
+}
+
+.desc-width {
+  width: 360px;
+}
+
+.fw-700 {
+  font-weight: 700;
+}
+
+@media screen and (max-width: 992px) {
+  .astro-dictionary {
+    background-color: #fef3c7;
+    gap: 36px;
+    padding: 40px 24px;
+  }
+
+  .astro-text {
+    font-size: 40px;
+    width: 100%;
+  }
+
+  .astro-para {
+    width: 100%;
+  }
+
+  .astro-image {
+    width: 342px;
+    height: auto;
+    padding: 40px 24px;
+    background: url("../../../assets/images/astro-gradient.svg");
+  }
+
+  .cosmic-text {
+    width: 100%;
+  }
+
+  .cosmic-para {
+    width: 100%;
+  }
+
+  .astro-content {
+    padding: 40px 24px;
+    gap: 0px;
+  }
+
+  .search-text {
+    text-align: left;
+  }
+
+  .celestial-text {
+    text-align: left;
+    width: 294px;
+  }
+
+  .astrology-group {
+    width: 100%;
+  }
+
+  .text-gap {
+    gap: 24px;
+    overflow-x: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}
